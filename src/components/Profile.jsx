@@ -1,15 +1,31 @@
-import user from './src/user.json/user/json';
-
+import user from '../jsonfolder/user.json';
 export const Profile = () => {
   return (
     <>
-      <Profile
-        username={user.username}
-        tag={user.tag}
-        location={user.location}
-        avatar={user.avatar}
-        stats={user.stats}
-      />
+      <div className="profile">
+        <div className="description">
+          <img src={user.avatar} alt="User avatar" className="avatar" />
+          <p className="name">{user.name}</p>
+          <p className="tag">{user.tag}</p>
+          <p className="location">{user.location}</p>
+        </div>
+
+        <ul class="stats">
+          <li>
+            <span className="label">Followers</span>
+            <span className="quantity">{user.stats.followers}</span>
+          </li>
+          <li>
+            <span className="label">Views</span>
+            <span className="quantity">{user.stats.views}</span>
+          </li>
+          <li>
+            <span className="label">Likes</span>
+            <span className="quantity">{user.stats.likes}</span>
+          </li>
+        </ul>
+      </div>
+      ;
     </>
   );
 };
