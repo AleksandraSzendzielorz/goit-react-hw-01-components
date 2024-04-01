@@ -8,11 +8,12 @@ export const App = () => {
     <div
       style={{
         height: '100vh',
-        display: 'flex',
+        maxWidth: 650,
         justifyContent: 'center',
         alignItems: 'center',
         fontSize: 40,
         color: '#010101',
+        margin: 50,
       }}
     >
       <Profile />
