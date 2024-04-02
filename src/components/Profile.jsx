@@ -70,7 +70,6 @@ export const Profile = () => {
           </li>
         </ul>
       </div>
-      ;
     </>
   );
 };
