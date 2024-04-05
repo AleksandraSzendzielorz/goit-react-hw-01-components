@@ -48,17 +48,15 @@ export const Profile = () => {
             alt="User avatar"
             className="avatar"
           />
-          <p style={userName} className="name">
-            {user.name}
-          </p>
-          <p className="tag">@{user.tag}</p>
-          <p className="location">{user.location}</p>
+          <p style={userName}>{user.name}</p>
+          <p>@{user.tag}</p>
+          <p>{user.location}</p>
         </div>
 
         <ul style={listStyle} class="stats">
           <li style={listyStyleLi}>
-            <span className="label">Followers</span>
-            <span className="quantity">{user.stats.followers}</span>
+            <span>Followers</span>
+            <span>{user.stats.followers}</span>
           </li>
           <li style={listyStyleLi}>
             <span className="label">Views</span>

@@ -1,7 +1,13 @@
 import { Profile } from '../components/Profile';
 import { Statistics } from '../components/Statistics';
 import { FriendList } from '../components/FriendList';
+import { FriendListItem } from '../components/FriendListItem';
 import { TransactionHistory } from '../components/TransactionHistory';
+
+import user from '../jsonfolder/user.json';
+import data from '../jsonfolder/data.json';
+import friends from '../jsonfolder/friends.json';
+import items from '../jsonfolder/transactions.json';
 
 export const App = () => {
   return (
@@ -19,6 +25,7 @@ export const App = () => {
       <Profile />
       <Statistics />
       <FriendList />
+      <FriendListItem />
       <TransactionHistory />
     </div>
   );

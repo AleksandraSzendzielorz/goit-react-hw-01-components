@@ -15,6 +15,10 @@ const statisticListLi = {
   textAlign: 'center',
 };
 
+const statistics = {
+  marginTop: 50,
+};
+
 export const Statistics = ({ title }) => {
   const getRandomColor = () => {
     const letters = '0123456789ABCDEF';
@@ -26,7 +30,7 @@ export const Statistics = ({ title }) => {
   };
 
   return (
-    <section className="statistics">
+    <section style={statistics}>
       {title && <h2 className="title">{title}</h2>}
       <ul style={statisticList} className="stat-list">
         {data.map((stat, index) => (
