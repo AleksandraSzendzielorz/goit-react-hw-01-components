@@ -3,7 +3,7 @@ const profileStyle = {
   display: 'flex',
   flexDirection: 'column',
   alignItems: 'center',
-  justifyConteent: 'center',
+  justifyContent: 'center',
   backgroundColor: 'lightGray',
 };
 
@@ -16,13 +16,13 @@ const userImage = {
 const userName = {
   color: 'black',
   height: 20,
-  textAlignt: 'center',
+  textAlign: 'center',
 };
 const topProfileStyle = {
   display: 'flex',
   flexDirection: 'column',
   alignItems: 'center',
-  justifyConteent: 'center',
+  justifyContent: 'center',
 };
 
 const listStyle = {
@@ -53,7 +53,7 @@ export const Profile = () => {
           <p>{user.location}</p>
         </div>
 
-        <ul style={listStyle} class="stats">
+        <ul style={listStyle}>
           <li style={listyStyleLi}>
             <span>Followers</span>
             <span>{user.stats.followers}</span>
