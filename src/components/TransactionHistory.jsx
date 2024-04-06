@@ -1,46 +1,47 @@
 import PropTypes from 'prop-types';
+import styled from 'styled-components';
 
-const tableStyle = {
-  border: 'solid',
-  borderColor: 'black',
-  width: '100%',
-};
-const theadStyle = {
-  color: 'white',
-  backgroundColor: 'blue',
-  margin: 0,
-  padding: 20,
-};
-const tBodyStyle = {
-  margin: 0,
-};
-const tdStyle = {
-  border: 'solid',
-};
+const TableStyle = styled.table`
+  border: solid;
+  border-color: black;
+  width: 100%;
+`;
+const TheadStyle = styled.thead`
+  color: white;
+  background-color: blue;
+  margin: 0;
+  padding: 20px;
+`;
+const TBodyStyle = styled.tbody`
+  margin: 0;
+`;
+const TdStyle = styled.td`
+  border: solid;
+`;
 
 export const TransactionHistory = ({ items }) => {
   const transactionsList = items.transactionsArr;
   return (
     <>
       <div>
-        <table style={tableStyle}>
-          <thead style={theadStyle}>
+        <TableStyle>
+          <TheadStyle>
             <tr>
               <th>Type</th>
               <th>Amount</th>
               <th>Currency</th>
             </tr>
-          </thead>
-          <tbody style={tBodyStyle}>
+          </TheadStyle>
+          <TBodyStyle>
             {transactionsList.map(transaction => (
               <tr key={transaction.id}>
-                <td style={tdStyle}>{transaction.type}</td>
-                <td style={tdStyle}>{transaction.amount}</td>
-                <td style={tdStyle}>{transaction.currency}</td>
+                <TdStyle>{transaction.type}</TdStyle>
+                <TdStyle>{transaction.amount}</TdStyle>
+                <TdStyle>{transaction.currency}</TdStyle>
               </tr>
             ))}
-          </tbody>
-        </table>
+          </TBodyStyle>
+        </TableStyle>
       </div>
     </>
   );
