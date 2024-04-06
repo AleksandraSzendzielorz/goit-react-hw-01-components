@@ -1,3 +1,5 @@
+import PropTypes from 'prop-types';
+
 const tableStyle = {
   border: 'solid',
   borderColor: 'black',
@@ -42,4 +44,17 @@ export const TransactionHistory = ({ items }) => {
       </div>
     </>
   );
+};
+
+TransactionHistory.propTypes = {
+  items: PropTypes.shape({
+    transactionsArr: PropTypes.arrayOf(
+      PropTypes.shape({
+        id: PropTypes.string,
+        type: PropTypes.string,
+        amount: PropTypes.string,
+        currency: PropTypes.string,
+      })
+    ),
+  }).isRequired,
 };

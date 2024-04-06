@@ -1,73 +1,85 @@
 import user from '../jsonfolder/user.json';
-const profileStyle = {
-  display: 'flex',
-  flexDirection: 'column',
-  alignItems: 'center',
-  justifyContent: 'center',
-  backgroundColor: 'lightGray',
-};
+import PropTypes from 'prop-types';
+import styled from 'styled-components';
 
-const userImage = {
-  height: 200,
-  backgroundColor: 'grey',
-  borderRadius: 100,
-  alignItems: 'center',
-};
-const userName = {
-  color: 'black',
-  height: 20,
-  textAlign: 'center',
-};
-const topProfileStyle = {
-  display: 'flex',
-  flexDirection: 'column',
-  alignItems: 'center',
-  justifyContent: 'center',
-};
+const ProfileStyle = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: lightgray;
+`;
 
-const listStyle = {
-  listStyle: 'none',
-  display: 'flex',
-  margin: 0,
-  padding: 0,
-};
-const listyStyleLi = {
-  display: 'flex',
-  flexDirection: 'column',
-  padding: 25,
-};
+const UserImage = styled.img`
+  height: 200px;
+  border-radius: 100;
+  align-items: center;
+  padding-top: 30px;
+`;
+const UserName = styled.p`
+  color: black;
+  height: 20px;
+  text-align: center;
+`;
+const TopProfileStyle = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justif-content: center;
+`;
+
+const ListStyle = styled.ul`
+  list-style: none;
+  display: flex;
+  margin: 0;
+  padding: 0;
+`;
+const ListyStyleLi = styled.li`
+  display: flex;
+  flex-direction: column;
+  padding: 25px;
+`;
 
 export const Profile = () => {
   return (
     <>
-      <div style={profileStyle}>
-        <div style={topProfileStyle}>
-          <img
-            style={userImage}
+      <ProfileStyle>
+        <TopProfileStyle>
+          <UserImage
             src={user.avatar}
             alt="User avatar"
             className="avatar"
-          />
-          <p style={userName}>{user.name}</p>
+          ></UserImage>
+          <UserName>{user.name}</UserName>
           <p>@{user.tag}</p>
           <p>{user.location}</p>
-        </div>
+        </TopProfileStyle>
 
-        <ul style={listStyle}>
-          <li style={listyStyleLi}>
+        <ListStyle>
+          <ListyStyleLi>
             <span>Followers</span>
             <span>{user.stats.followers}</span>
-          </li>
-          <li style={listyStyleLi}>
+          </ListyStyleLi>
+          <ListyStyleLi>
             <span className="label">Views</span>
             <span className="quantity">{user.stats.views} </span>
-          </li>
-          <li style={listyStyleLi}>
+          </ListyStyleLi>
+          <ListyStyleLi>
             <span className="label">Likes</span>
             <span className="quantity">{user.stats.likes}</span>
-          </li>
-        </ul>
-      </div>
+          </ListyStyleLi>
+        </ListStyle>
+      </ProfileStyle>
     </>
   );
+};
+
+Profile.propTypes = {
+  user: PropTypes.shape({
+    username: PropTypes.string,
+    tag: PropTypes.string,
+    location: PropTypes.string,
+    avatar: PropTypes.string,
+    stats: PropTypes.objectOf(PropTypes.number),
+  }).isRequired,
 };

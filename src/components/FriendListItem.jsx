@@ -1,3 +1,5 @@
+import PropTypes from 'prop-types';
+
 const liFriendStyle = {
   borderStyle: 'outset',
   display: 'flex',
@@ -20,4 +22,13 @@ export const FriendListItem = ({ avatar, name, isOnline }) => {
       <p>{name}</p>
     </li>
   );
+};
+
+FriendListItem.propTypes = {
+  friend: PropTypes.shape({
+    id: PropTypes.number,
+    avatar: PropTypes.string,
+    name: PropTypes.string,
+    isOnline: PropTypes.bool,
+  }).isRequired,
 };

@@ -1,5 +1,6 @@
 import React from 'react';
 import data from 'jsonfolder/data.json';
+import PropTypes from 'prop-types';
 
 const statisticList = {
   display: 'flex',
@@ -46,4 +47,17 @@ export const Statistics = ({ title }) => {
       </ul>
     </section>
   );
+};
+
+Statistics.propTypes = {
+  data: PropTypes.shape({
+    title: PropTypes.string,
+    stats: PropTypes.arrayOf(
+      PropTypes.shape({
+        id: PropTypes.string,
+        label: PropTypes.string,
+        percentage: PropTypes.number,
+      })
+    ),
+  }).isRequired,
 };
