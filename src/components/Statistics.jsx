@@ -1,24 +1,25 @@
 import React from 'react';
 import data from 'jsonfolder/data.json';
 import PropTypes from 'prop-types';
+import styled from 'styled-components';
 
-const statisticList = {
-  display: 'flex',
-  listStyle: 'none',
-  margin: 0,
-  padding: 0,
-};
+const StatisticList = styled.ul`
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+`;
 
-const statisticListLi = {
-  display: 'flex',
-  flexDirection: 'column',
-  width: 150,
-  textAlign: 'center',
-};
+const StatisticListLi = styled.li`
+  display: flex;
+  flex-direction: column;
+  width: 150px;
+  text-align: center;
+`;
 
-const statistics = {
-  marginTop: 50,
-};
+const StatisticsSection = styled.section`
+  margin-top: 50px;
+`;
 
 export const Statistics = ({ title }) => {
   const getRandomColor = () => {
@@ -31,21 +32,21 @@ export const Statistics = ({ title }) => {
   };
 
   return (
-    <section style={statistics}>
+    <StatisticsSection>
       {title && <h2 className="title">{title}</h2>}
-      <ul style={statisticList} className="stat-list">
+      <StatisticList>
         {data.map((stat, index) => (
-          <li
+          <StatisticListLi
             key={index}
             className="item"
-            style={{ backgroundColor: getRandomColor(), ...statisticListLi }}
+            style={{ backgroundColor: getRandomColor() }}
           >
             <span className="label">{stat.label}</span>
             <span className="percentage">{stat.percentage}%</span>
-          </li>
+          </StatisticListLi>
         ))}
-      </ul>
-    </section>
+      </StatisticList>
+    </StatisticsSection>
   );
 };
 
