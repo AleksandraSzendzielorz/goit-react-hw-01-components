@@ -1,12 +1,13 @@
 import PropTypes from 'prop-types';
+import styled from 'styled-components';
 
-const liFriendStyle = {
-  borderStyle: 'outset',
-  display: 'flex',
-  alignItems: 'center',
-  gap: 30,
-  paddingLeft: 20,
-};
+const LiFriendStyle = styled.li`
+  border-style: outset;
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  padding-left: 20px;
+`;
 
 export const FriendListItem = ({ avatar, name, isOnline }) => {
   const statusStyle = {
@@ -16,11 +17,11 @@ export const FriendListItem = ({ avatar, name, isOnline }) => {
     backgroundColor: isOnline ? 'green' : 'red',
   };
   return (
-    <li style={liFriendStyle}>
+    <LiFriendStyle>
       <span style={statusStyle}></span>
       <img src={avatar} alt="User avatar" width="70" />
       <p>{name}</p>
-    </li>
+    </LiFriendStyle>
   );
 };
 
