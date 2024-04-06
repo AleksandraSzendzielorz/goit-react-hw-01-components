@@ -1,18 +1,19 @@
 import React from 'react';
 import { FriendListItem } from './FriendListItem';
+import styled from 'styled-components';
 
-const ulFriendStyle = {
-  listStyle: 'none',
-  margin: 30,
-  padding: 0,
-};
+const UlFriendStyle = styled.ul`
+  list-style: none;
+  margin: 30px;
+  padding: 0;
+`;
 export const FriendList = ({ friends }) => {
   const friendList = friends.friendsArr;
   return (
-    <ul style={ulFriendStyle} className={friendList}>
+    <UlFriendStyle>
       {friendList.map(friend => (
         <FriendListItem key={friend.id} {...friend}></FriendListItem>
       ))}
-    </ul>
+    </UlFriendStyle>
   );
 };
