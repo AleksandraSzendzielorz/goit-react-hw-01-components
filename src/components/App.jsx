@@ -1,7 +1,6 @@
 import { Profile } from '../components/Profile';
 import { Statistics } from '../components/Statistics';
 import { FriendList } from '../components/FriendList';
-import { FriendListItem } from '../components/FriendListItem';
 import { TransactionHistory } from '../components/TransactionHistory';
 
 import user from '../jsonfolder/user.json';
@@ -22,11 +21,10 @@ export const App = () => {
         margin: 50,
       }}
     >
-      <Profile />
-      <Statistics />
-      <FriendList />
-      <FriendListItem />
-      <TransactionHistory />
+      <Profile user={user} />
+      <Statistics data={data} />
+      <FriendList friends={friends} />
+      <TransactionHistory items={items} />
     </div>
   );
 };
